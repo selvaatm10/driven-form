@@ -1,0 +1,72 @@
+<div class="book-appoinment">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="appoinment-content">
+                    <img src="../../assets/img/download.png" alt="" style="width: 85%;">
+                </div>
+            </div>
+            <div class="col-6">
+                <form [formGroup]="loginForm"  #useform="ngForm" >
+                    <div class="row">
+                        <h3>Reactive driven Form</h3>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fname" class="form-label">first Name:</label>
+                                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="fname" name="fname">
+                                <span class="error" *ngIf="loginForm.get('fname')?.invalid && loginForm.get('fname')?.touched">First name is required...!</span>
+                                <span class="text text-success" *ngIf="loginForm.get('fname')?.valid">success</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="lname" class="form-label">Last Name:</label>
+                                <input type="text" class="form-control" placeholder="Enter password" formControlName="lname" name="lname">
+                                <span class="error" *ngIf="loginForm.get('lname')?.invalid && loginForm.get('lname')?.touched">Last Name is required</span>
+                                <span class="text text-success" *ngIf="loginForm.get('lname')?.valid">success</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter email" formControlName="email" name="email">
+                        <span class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">Enter the valid email</span>
+                        <span class="text text-success" *ngIf="loginForm.get('email')?.valid">Email is success</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="pswd" class="form-label">Password:</label>
+                        <input type="password" class="form-control" placeholder="Enter password" formControlName="pswd" name="pswd">
+                        <span class="error" *ngIf="loginForm.get('pswd')?.invalid && loginForm.get('pswd')?.touched">password is required</span>
+                        <span class="text text-success" *ngIf="loginForm.get('pswd')?.valid">password is success</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="city" class="form-label">City :</label>
+                                <input type="text" class="form-control" placeholder="Enter First city Name" formControlName="city" name="fname">
+                                <span class="error" *ngIf="loginForm.get('city')?.invalid && loginForm.get('city')?.touched">City name is required...!</span>
+                                <span class="text text-success" *ngIf="loginForm.get('city')?.valid">success</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="pin" class="form-label">Pin code:</label>
+                                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="pin" name="fname">
+                                <span class="error" *ngIf="loginForm.get('pin')?.invalid && loginForm.get('pin')?.touched">Pin code is required...!</span>
+                                <span class="text text-success" *ngIf="loginForm.get('pin')?.valid">success</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="useform.invalid" style="margin-top: 15px">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  
+
+
+
+
+

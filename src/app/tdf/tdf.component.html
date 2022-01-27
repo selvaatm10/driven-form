@@ -1,0 +1,97 @@
+
+
+<div class="book-appoinment">
+  <div class="container">
+      <div class="row">
+          <div class="col-6">
+              <div class="appoinment-content">
+                  <img src="../../assets/img/download.png" alt="" style="width: 85%;">
+              </div>
+          </div>
+          <div class="col-6">
+            <h3>Template driven Form</h3>
+            <form #useform="ngForm" >
+              <div class=" mt-3 form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="firstName" class="form-label">First Name:</label>
+                  <input type="text" required minlength="4" ngModel #fname="ngModel" class="form-control"
+                    placeholder="Enter firstName" name="fname" autocomplete="off">
+                    <div *ngIf="fname.invalid" class="invalid-feedback">
+                      <div *ngIf="fname.errors?.['required']  && fname.invalid && fname.touched">First Name is required</div>
+                      <div *ngIf="fname.errors?.['minlength']">First Name must be at least 4 characters</div>
+                    </div>
+                    <div *ngIf="fname.valid" class="valid-feedback">
+                      <div *ngIf="fname.valid">First Name is success</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                  <input type="text" required minlength="4" ngModel #lname="ngModel" class="form-control"
+                    placeholder="Enter LastName" name="lname">
+                    <div *ngIf="lname.invalid" class="invalid-feedback">
+                      <div *ngIf="lname.errors?.['required']  && lname.invalid && lname.touched">Last Name is required</div>
+                      <div *ngIf="lname.errors?.['minlength']">Last Name must be at least 4 characters</div>
+                    </div>
+                    <div *ngIf="lname.valid" class="valid-feedback">
+                      <div *ngIf="lname.valid">last Name is success</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="pNumber" class="form-label">Phone Number:</label>
+                  <input type="text" required minlength="9" maxlength="10" ngModel #pnum="ngModel" class="form-control"
+                    placeholder="Enter Phone Number" name="pnum">
+                    <div *ngIf="pnum.invalid" class="invalid-feedback">
+                      <div *ngIf="pnum.errors?.['required']  && pnum.invalid && pnum.touched">Phone number is required</div>
+                      <div *ngIf="pnum.errors?.['minlength']">Enter 10 digit phone number</div>
+                    </div>
+                    <div *ngIf="pnum.valid" class="valid-feedback">
+                      <div *ngIf="pnum.valid">Phone number is success</div>
+                    </div>
+                </div>
+                <label for="email" class="form-label">Email:</label>
+                <span class="text text-danger  star" *ngIf="email.invalid">*</span>
+                <input type="email" required minlength="6" ngModel #email="ngModel" class="form-control"
+                  placeholder="Enter email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  autocomplete="off">
+                <div *ngIf="email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors?.['required'] && email.invalid && email.touched">email is required</div>
+                </div>
+        
+                <div *ngIf="email.touched" class="invalid-feedback">
+                  <div *ngIf="email.errors?.['pattern']">This is not a valid Email...!</div>
+                </div>
+                <div *ngIf="email.valid" class="valid-feedback">
+                  <div *ngIf="email.valid">email is success</div>
+                </div>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="pswd" class="form-label">Password:</label>
+                <span class="text text-danger star" *ngIf="pswd.invalid">*</span>
+                <input type="password" required minlength="6" ngModel #pswd="ngModel" class="form-control" id="pwd"
+                  placeholder="Enter password" name="pswd">
+                <div *ngIf="pswd.invalid" class="invalid-feedback">
+                  <div *ngIf="pswd.errors?.['required']  && pswd.invalid && pswd.touched">Password is required</div>
+                  <div *ngIf="pswd.errors?.['minlength']">Password must be at least 6 characters</div>
+                </div>
+                <div *ngIf="pswd.valid" class="valid-feedback">
+                  <div *ngIf="pswd.valid">Password is success</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="terms" ngModel name="terms" #terms="ngModel" value="" required>
+                  <label class="form-check-label" for="terms">
+                    Agree to terms and conditions
+                  </label>
+                  <div *ngIf="terms?.touched && terms?.invalid" class="invalid-feedback ">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3" [disabled]="useform.invalid">Submit</button>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
